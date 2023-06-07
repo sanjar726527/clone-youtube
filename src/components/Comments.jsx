@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Comment from "./Comment";
+import { Button } from "@mui/material";
+import SendIcon from "@mui/icons-material/Send";
 
 const Container = styled.div``;
 
@@ -27,19 +29,24 @@ const Input = styled.input`
 `;
 
 const Comments = () => {
+  const [value, setValue] = useState("");
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    console.log(value);
+  };
   return (
     <Container>
       <NewComment>
-        <Avatar src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo" />
-        <Input placeholder="Add a comment..." />
+        <Input
+          value={value}
+          onChange={(e) => handleChange(e)}
+          placeholder="Add a comment..."
+        />
+        <Button variant="contained" endIcon={<SendIcon />}>
+          Send
+        </Button>
       </NewComment>
-      <Comment/>
-      <Comment/>
-      <Comment/>
-      <Comment/>
-      <Comment/>
-      <Comment/>
-      <Comment/>
+      <Comment />
     </Container>
   );
 };

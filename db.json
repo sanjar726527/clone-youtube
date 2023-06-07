@@ -108,5 +108,14 @@
       "channel": "https://www.youtube.com/watch?v=E68GBkSPXcw&t=702s&ab_channel=FarkhodDadajanov",
       "created": "Jun 6, 2023"
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQntNi68ASSiKFpRVzQOMfJCx5aYevH69w&usqp=CAU",
+      "name": "John Doe",
+      "date": "1 day ago",
+      "text": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, ex laboriosam ipsam aliquam voluptatem perferendis provident modi, sequi tempore reiciendis quod, optio ullam cumque? Quidem numquam sint mollitia totam reiciendis?"
+    }
   ]
 }

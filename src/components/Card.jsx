@@ -89,6 +89,7 @@ const Card = ({ type }) => {
               url={`${video.channel}`}
               width={"400px"}
               height={"210px"}
+              controls
             />
             <Details type={type}>
               <ChannelImage type={type} src={video.url} />

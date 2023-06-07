@@ -6,6 +6,7 @@ import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
 import Comments from "../components/Comments";
 import Card from "../components/Card";
+import ReactPlayer from "react-player/youtube";
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +14,6 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  
   flex: 5;
 `;
 const VideoWrapper = styled.div``;
@@ -110,15 +110,12 @@ const Video = () => {
     <Container>
       <Content>
         <VideoWrapper>
-          <iframe
-            width="100%"
-            height="720"
-            src="https://www.youtube.com/embed/E68GBkSPXcw"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <ReactPlayer
+            width={"100%"}
+            height={"600px"}
+            controls
+            url="https://www.youtube.com/embed/E68GBkSPXcw"
+          />
         </VideoWrapper>
         <Title>Test Video</Title>
         <Details>
@@ -141,9 +138,9 @@ const Video = () => {
         <Hr />
         <Channel>
           <ChannelInfo>
-            <Image src="https://yt3.ggpht.com/yti/APfAmoE-Q0ZLJ4vk3vqmV4Kwp0sbrjxLyB8Q4ZgNsiRH=s88-c-k-c0x00ffffff-no-rj-mo" />
+            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQntNi68ASSiKFpRVzQOMfJCx5aYevH69w&usqp=CAU" />
             <ChannelDetail>
-              <ChannelName>Lama Dev</ChannelName>
+              <ChannelName>Coder</ChannelName>
               <ChannelCounter>200K subscribers</ChannelCounter>
               <Description>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
