@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   position: sticky;
-  top: 0;
+  top: -1px;
   background-color: ${({ theme }) => theme.bgLighter};
   height: 56px;
 `;

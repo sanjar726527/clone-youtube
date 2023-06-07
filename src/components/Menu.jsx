@@ -47,10 +47,11 @@ const Img = styled.img`
 const Item = styled.div`
   display: flex;
   align-items: center;
+  justify-content: start;
   gap: 20px;
   cursor: pointer;
   padding: 7.5px 0px;
-
+  width: 100%;
   &:hover {
     background-color: ${({ theme }) => theme.soft};
   }
@@ -80,66 +81,219 @@ const Menu = ({ darkMode, setDarkMode }) => {
         </Logo>
       </Link>
       <Wrapper>
-        <Item>
-          <HomeIcon />
-          Home
-        </Item>
-        <Item>
-          <ExploreOutlinedIcon />
-          Explore
-        </Item>
-        <Item>
-          <SubscriptionsOutlinedIcon />
-          Subscriptions
-        </Item>
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <HomeIcon />
+            Home
+          </Item>
+        </Link>
+        <Link
+          to="/explore"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <ExploreOutlinedIcon />
+            Explore
+          </Item>
+        </Link>
+        <Link
+          to="/subscriptions"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <SubscriptionsOutlinedIcon />
+            Subscriptions
+          </Item>
+        </Link>
         <Hr />
-        <Item>
-          <VideoLibraryOutlinedIcon />
-          Library
-        </Item>
-        <Item>
-          <HistoryOutlinedIcon />
-          History
-        </Item>
+        <Link
+          to="/library"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <VideoLibraryOutlinedIcon />
+            Library
+          </Item>
+        </Link>
+        <Link
+          to="/history"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <HistoryOutlinedIcon />
+            History
+          </Item>
+        </Link>
         <Hr />
-
-        <Item>
-          <LibraryMusicOutlinedIcon />
-          Music
-        </Item>
-        <Item>
-          <SportsBasketballOutlinedIcon />
-          Sports
-        </Item>
-        <Item>
-          <SportsEsportsOutlinedIcon />
-          Gaming
-        </Item>
-        <Item>
-          <MovieOutlinedIcon />
-          Movies
-        </Item>
-        <Item>
-          <ArticleOutlinedIcon />
-          News
-        </Item>
-        <Item>
-          <LiveTvOutlinedIcon />
-          Live
-        </Item>
+        <Link
+          to="/music"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <LibraryMusicOutlinedIcon />
+            Music
+          </Item>
+        </Link>
+        <Link
+          to="/sports"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <SportsBasketballOutlinedIcon />
+            Sports
+          </Item>
+        </Link>
+        <Link
+          to="/gaming"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <SportsEsportsOutlinedIcon />
+            Gaming
+          </Item>
+        </Link>
+        <Link
+          to="/movies"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <MovieOutlinedIcon />
+            Movies
+          </Item>
+        </Link>
+        <Link
+          to="/news"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <ArticleOutlinedIcon />
+            News
+          </Item>
+        </Link>
+        <Link
+          to="/live"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <LiveTvOutlinedIcon />
+            Live
+          </Item>
+        </Link>
         <Hr />
-        <Item>
-          <SettingsOutlinedIcon />
-          Settings
-        </Item>
-        <Item>
-          <FlagOutlinedIcon />
-          Report
-        </Item>
-        <Item>
-          <HelpOutlineOutlinedIcon />
-          Help
-        </Item>
+        <Link
+          to="/settings"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <SettingsOutlinedIcon />
+            Settings
+          </Item>
+        </Link>
+        <Link
+          to="/report"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <FlagOutlinedIcon />
+            Report
+          </Item>
+        </Link>
+        <Link
+          to="/help"
+          style={{
+            textDecoration: "none",
+            color: "inherit",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <Item>
+            <HelpOutlineOutlinedIcon />
+            Help
+          </Item>
+        </Link>
         <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
           {darkMode ? "Light" : "Dark"} Mode

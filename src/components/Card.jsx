@@ -55,8 +55,10 @@ const Info = styled.div`
 `;
 const Cards = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+  border-radius: 20px;
 `;
 
 const Card = ({ type }) => {
@@ -75,10 +77,18 @@ const Card = ({ type }) => {
   }, []);
   return (
     <Cards>
-      {videos.map((video) => (
-        <Link to={`${video.channel}`} style={{ textDecoration: "none" }}>
+      {videos.map((video, index) => (
+        <Link
+          to={`${video.channel}`}
+          style={{ textDecoration: "none" }}
+          key={index}
+        >
           <Container type={type} key={video.id}>
-            <ReactPlayer url={`${video.channel}`} width={"400px"} />
+            <ReactPlayer
+              url={`${video.channel}`}
+              width={"400px"}
+              height={"210px"}
+            />
             <Details type={type}>
               <ChannelImage type={type} src={video.url} />
               <Texts>
