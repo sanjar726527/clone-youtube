@@ -53,6 +53,7 @@ const Info = styled.div`
   font-size: 14px;
   color: ${({ theme }) => theme.textSoft};
 `;
+
 const Cards = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -79,7 +80,7 @@ const Card = ({ type }) => {
     <Cards>
       {videos.map((video, index) => (
         <Link
-          to={`${video.channel}`}
+          to={`video/${video.id}`}
           style={{ textDecoration: "none" }}
           key={index}
         >

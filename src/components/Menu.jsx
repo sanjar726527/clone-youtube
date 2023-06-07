@@ -30,7 +30,7 @@ const Container = styled.div`
 `;
 const Wrapper = styled.div`
   padding: 65px 35px;
-  height: 100vh;
+
 `;
 const Logo = styled.div`
   display: flex;
