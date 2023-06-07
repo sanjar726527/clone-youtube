@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Comment from "./Comment";
 import { Button } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import axios from "axios";
 
 const Container = styled.div``;
 
@@ -30,6 +31,18 @@ const Input = styled.input`
 
 const Comments = () => {
   const [value, setValue] = useState("");
+  useEffect(() => {
+    const res = axios
+      .post("http://localhost:3002/comments")
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        {
+          console.log(err);
+        }
+      });
+  }, []);
   const handleChange = (e) => {
     setValue(e.target.value);
     console.log(value);

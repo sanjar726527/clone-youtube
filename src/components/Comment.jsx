@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { Context } from "../context/Context";
 
 const Container = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 30px;
+  flex-direction: column;
   margin: 30px 0px;
 `;
 
@@ -35,15 +37,20 @@ const Date = styled.span`
 const Text = styled.span`
   font-size: 14px;
 `;
-
+const Content = styled.div`
+  display: flex;
+  gap: 10px;
+  flex: 1;
+`;
 const Comment = () => {
-  const [comment, setComment] = useState();
+  const [comments, setComments] = useState([]);
   useEffect(() => {
     const res = axios
       .get("http://localhost:3002/comments")
       .then((data) => {
-        setComment(data.data);
-        console.log(comment);
+        setComments(data.data);
+        console.log(data);
+        console.log(comments);
       })
       .catch((err) => {
         {
@@ -53,22 +60,20 @@ const Comment = () => {
   }, []);
 
   return (
-    <>
-      <Container>
-        <Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQntNi68ASSiKFpRVzQOMfJCx5aYevH69w&usqp=CAU" />
-        <Details>
-          <Name>
-            John Doe <Date>1 day ago</Date>
-          </Name>
-          <Text>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, ex
-            laboriosam ipsam aliquam voluptatem perferendis provident modi,
-            sequi tempore reiciendis quod, optio ullam cumque? Quidem numquam
-            sint mollitia totam reiciendis?
-          </Text>
-        </Details>
-      </Container>
-    </>
+    <Container>
+      {comments.map((comment, index) => (
+        <Content key={index}>
+          <Avatar src={comment.avatar} />
+          <Details>
+            <Name>
+              {comment.name}
+              <Date>{comment.date}</Date>
+            </Name>
+            <Text>{comment.text}</Text>
+          </Details>
+        </Content>
+      ))}
+    </Container>
   );
 };
 
