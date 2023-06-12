@@ -43,14 +43,14 @@ const Content = styled.div`
   flex: 1;
 `;
 const Comment = () => {
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useContext(Context);
+
   useEffect(() => {
     const res = axios
       .get("http://localhost:3002/comments")
       .then((data) => {
-        setComments(data.data);
         console.log(data);
-        console.log(comments);
+        setComments(data.data);
       })
       .catch((err) => {
         {

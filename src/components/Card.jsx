@@ -68,6 +68,7 @@ const Card = ({ type }) => {
     const res = axios
       .get("http://localhost:3002/videos")
       .then((data) => {
+        console.log(data);
         setVideos(data.data);
       })
       .catch((err) => {
