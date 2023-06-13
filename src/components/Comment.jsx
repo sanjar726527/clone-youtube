@@ -49,7 +49,7 @@ const Comment = () => {
     const res = axios
       .get("http://localhost:3002/comments")
       .then((data) => {
-        console.log(data);
+        console.log(data.data);
         setComments(data.data);
       })
       .catch((err) => {

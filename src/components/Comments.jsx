@@ -31,32 +31,40 @@ const Input = styled.input`
 `;
 
 const Comments = () => {
-  const [value, setValue] = useState({
-    // id: comments.length + 1,
-    // avatar:
-    //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQntNi68ASSiKFpRVzQOMfJCx5aYevH69w&usqp=CAU",
-    // name: `User ${comments.length + 1}`,
-    // date: "11-12-2015",
-    // text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, ex laboriosam ipsam aliquam voluptatem perferendis provident modi, sequi tempore reiciendis quod, optio ullam cumque? Quidem numquam sint mollitia totam reiciendis?",
-  });
+  const [value, setValue] = useState("");
   const [comments, setComments] = useContext(Context);
 
-  // useEffect(() => {
-  //   const res = axios
-  //     .post("http://localhost:3002/comments")
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((err) => {
-  //       {
-  //         console.log(err);
-  //       }
-  //     });
-  // }, []);
+  const [comment, setComment] = useState({});
+
+  useEffect(() => {
+    const res = axios
+      .post("http://localhost:3002/comments", comment)
+      .then((data) => {
+        Click();
+        console.log(data);
+      })
+      .catch((err) => {
+        {
+          console.log(err);
+        }
+      });
+  }, []);
   const handleChange = (e) => {
     setValue(e.target.value);
     console.log(value);
   };
+  const Click = (comments) => {
+    setComment({
+      id: `${comments.length} + 1`,
+      avatar:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SQntNi68ASSiKFpRVzQOMfJCx5aYevH69w&usqp=CAU",
+      name: "John Doe",
+      date: "1 day ago",
+      text: `${value}`,
+    });
+    setValue("");
+  };
+
   return (
     <Container>
       <NewComment>
@@ -65,7 +73,11 @@ const Comments = () => {
           onChange={(e) => handleChange(e)}
           placeholder="Add a comment..."
         />
-        <Button variant="contained" endIcon={<SendIcon />}>
+        <Button
+          variant="contained"
+          endIcon={<SendIcon />}
+          onClick={() => Click(comments)}
+        >
           Send
         </Button>
       </NewComment>
