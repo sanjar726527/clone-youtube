@@ -65,18 +65,16 @@ const Cards = styled.div`
 const Card = ({ type }) => {
   const [videos, setVideos] = useContext(Context);
   useEffect(() => {
-    const res = axios
-      .get("http://localhost:3002/videos")
-      .then((data) => {
-        console.log(data);
-        setVideos(data.data);
-      })
-      .catch((err) => {
-        {
-          console.log(err);
-        }
-      });
-  }, []);
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get("http://localhost:3002/videos");
+        setVideos(response.data);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+    fetchComments();
+  }, [setVideos]);
   return (
     <Cards>
       {videos.map((video, index) => (

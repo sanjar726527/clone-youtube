@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import ThumbDownOffAltOutlinedIcon from "@mui/icons-material/ThumbDownOffAltOutlined";
 import ReplyOutlinedIcon from "@mui/icons-material/ReplyOutlined";
 import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
 import Comments from "../components/Comments";
 import Card from "../components/Card";
 import ReactPlayer from "react-player/youtube";
+import { Context } from "../context/Context";
 
 const Container = styled.div`
   display: flex;
@@ -42,8 +44,10 @@ const Buttons = styled.div`
   color: ${({ theme }) => theme.text};
 `;
 
-const Button = styled.div`
+const Button = styled.button`
   display: flex;
+  background: transparent;
+  color: ${({ theme }) => theme.text};
   align-items: center;
   gap: 5px;
   cursor: pointer;
@@ -106,6 +110,14 @@ const Subscribe = styled.button`
 `;
 
 const Video = () => {
+  const [comments] = useContext(Context);
+  const [likes, setLikes] = useState(123);
+
+  const handleLike = () => {
+    if (likes === 124) setLikes(likes - 1);
+    if (likes < 124) setLikes(likes + 1);
+  };
+
   return (
     <Container>
       <Content>
@@ -121,8 +133,9 @@ const Video = () => {
         <Details>
           <Info>7,948,154 views • Jun 22, 2022</Info>
           <Buttons>
-            <Button>
-              <ThumbUpOutlinedIcon /> 123
+            <Button onClick={handleLike}>
+              {likes > 123 ? <ThumbUpAltIcon /> : <ThumbUpOutlinedIcon />}
+              Like {likes}
             </Button>
             <Button>
               <ThumbDownOffAltOutlinedIcon /> Dislike

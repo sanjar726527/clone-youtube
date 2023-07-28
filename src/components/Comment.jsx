@@ -1,7 +1,7 @@
-import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { Context } from "../context/Context";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -46,18 +46,16 @@ const Comment = () => {
   const [comments, setComments] = useContext(Context);
 
   useEffect(() => {
-    const res = axios
-      .get("http://localhost:3002/comments")
-      .then((data) => {
-        console.log(data);
-        setComments(data.data);
-      })
-      .catch((err) => {
-        {
-          console.log(err);
-        }
-      });
-  }, []);
+    const fetchComments = async () => {
+      try {
+        const response = await axios.get("http://localhost:3002/comments");
+        setComments(response.data);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+    fetchComments();
+  }, [setComments]);
 
   return (
     <Container>
