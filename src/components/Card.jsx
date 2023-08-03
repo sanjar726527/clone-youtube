@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import React, { Profiler, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Context } from "../context/Context";
@@ -75,6 +75,7 @@ const Card = ({ type }) => {
     };
     fetchComments();
   }, [setVideos]);
+
   return (
     <Cards>
       {videos.map((video, index) => (

@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
+import ErrorBoundary from "../components/ErrorBoundary";
+import { Videos } from "../components/Videos";
 
 const Container = styled.div`
   display: grid;
@@ -9,7 +11,12 @@ const Container = styled.div`
 const Home = () => {
   return (
     <Container>
-      <Card />
+      <Videos>
+        <h1>Videos</h1>
+      </Videos>
+      <ErrorBoundary>
+        <Card />
+      </ErrorBoundary>
     </Container>
   );
 };

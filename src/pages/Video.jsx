@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
@@ -8,7 +8,6 @@ import AddTaskOutlinedIcon from "@mui/icons-material/AddTaskOutlined";
 import Comments from "../components/Comments";
 import Card from "../components/Card";
 import ReactPlayer from "react-player/youtube";
-import { Context } from "../context/Context";
 
 const Container = styled.div`
   display: flex;
@@ -110,7 +109,6 @@ const Subscribe = styled.button`
 `;
 
 const Video = () => {
-  const [comments] = useContext(Context);
   const [likes, setLikes] = useState(123);
 
   const handleLike = () => {
